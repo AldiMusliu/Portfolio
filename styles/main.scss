@@ -1,0 +1,25 @@
+@import "./reset";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.bg-violet {
+  background: linear-gradient(to right, #624aa0, #361d90);
+}
+
+.bg-blue {
+  background: linear-gradient(to right, #4286de, #265bb6);
+}
