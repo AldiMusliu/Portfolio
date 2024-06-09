@@ -5,32 +5,32 @@ import React from "react";
 
 const resumeData = [
   {
-    year: "2014-2015",
-    title: "Master Degree of Design",
-    institution: "Cambridge University",
+    year: "2019-2021",
+    title: "Bachelor of Computerized Automation and Robotics",
+    institution: "University of Prishtina, Prishtina",
     description:
-      "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
+      "Studying about programming, electronics, communication protocols and all things needed to design, build, and control the movements and actions of robots and automation systems.",
   },
   {
-    year: "2014-2015",
-    title: "Art & Creative Director",
-    institution: "Cambridge University",
+    year: "2021-Present",
+    title: "COMPUTER SCIENCE AND ENGINEERING",
+    institution: "UBT, Prishtina",
     description:
-      "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
+      "Studying about software systems engineering, database systems, computer, web programming.",
   },
   {
-    year: "2014-2015",
-    title: "Bachelor's Degree of C.A",
-    institution: "Cambridge University",
+    year: "15/11/2021 - 28/04/2022",
+    title: "COURSE - T É T É",
+    institution: "PBC Academy",
     description:
-      "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
+      "Studying about web programming including high programming languages like C#. Also leaning about Front-End development including HTML5, CSS3, BootStrap5 and JavaScript.",
   },
   {
-    year: "2014-2015",
-    title: "Wordpress Developer",
-    institution: "Cambridge University",
+    year: " 04/07/2022 - 07/09/2022",
+    title: "COURSE - MERN BOOTCAMP",
+    institution: "FLOSSK",
     description:
-      "A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.",
+      "Completed 2-month MERN stack bootcamp, diving headfirst into the exciting world of MongoDB, Express.js, React, and Node.js.",
   },
 ];
 
