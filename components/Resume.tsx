@@ -1,4 +1,5 @@
 "use client";
+import useClickSound from "@/hooks/useClickSound";
 import React from "react";
 
 const resumeData = [
@@ -33,6 +34,12 @@ const resumeData = [
 ];
 
 const Resume = () => {
+  const { audioRef: clickAudioRef, playSound } = useClickSound();
+  const handleDownloadClick = () => {
+    playSound();
+    window.open("/assets/AldiMusliuCV.pdf", "_blank");
+  };
+
   return (
     <section
       id="resume"
@@ -55,12 +62,16 @@ const Resume = () => {
             </div>
           ))}
           <div className="col-span-2 flex justify-center items-center">
-            <button className="mt-8 bg-[#ffbd39] text-black px-6 py-3 rounded-full font-bold ">
+            <button
+              onClick={handleDownloadClick}
+              className="mt-8 bg-[#ffbd39] text-black px-6 py-3 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
+            >
               DOWNLOAD CV
             </button>
           </div>
         </div>
       </div>
+      <audio ref={clickAudioRef} src="/assets/mouseClick.wav" />
     </section>
   );
 };

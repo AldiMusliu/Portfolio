@@ -36,3 +36,33 @@
 .leave-active {
   @apply opacity-0 transform translate-x-full transition-opacity  duration-1000 ease-in-out;
 }
+
+.hover-effect {
+  @apply transition-transform duration-300 transform hover:bg-[#ffbd39] hover:-translate-y-2;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.moving-image {
+  @apply transition-transform duration-300 relative;
+}
+
+.group:hover .moving-image {
+  @apply scale-110;
+  animation: spin 4s linear infinite;
+}
+
+.audio-indicator {
+  @apply absolute inset-0 flex items-center justify-center bg-gradient-to-r from-[#C08E2B] to-red-500 opacity-0 transition-opacity duration-300;
+}
+
+.group:hover .audio-indicator {
+  @apply opacity-75;
+}
