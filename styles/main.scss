@@ -16,10 +16,53 @@
   }
 }
 
-.bg-violet {
-  background: linear-gradient(to right, #624aa0, #361d90);
+.hover-line {
+  @apply absolute left-0 -bottom-1 w-full h-1 bg-[#ffbd39] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-l-lg rounded-r-lg;
 }
 
-.bg-blue {
-  background: linear-gradient(to right, #4286de, #265bb6);
+.navbar-cursor {
+  @apply cursor-pointer relative;
+}
+
+.hero-slide {
+  @apply absolute inset-0 flex items-center justify-between p-24;
+  transition: opacity 1s ease-in-out;
+}
+
+.enter-active {
+  @apply opacity-100 transform translate-x-0 transition-opacity  duration-1000 ease-in-out;
+}
+
+.leave-active {
+  @apply opacity-0 transform translate-x-full transition-opacity  duration-1000 ease-in-out;
+}
+
+.hover-effect {
+  @apply transition-transform duration-300 transform hover:bg-[#ffbd39] hover:-translate-y-2;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.moving-image {
+  @apply transition-transform duration-300 relative;
+}
+
+.group:hover .moving-image {
+  @apply scale-110;
+  animation: spin 4s linear infinite;
+}
+
+.audio-indicator {
+  @apply absolute inset-0 flex items-center justify-center bg-gradient-to-r from-[#C08E2B] to-red-500 opacity-0 transition-opacity duration-300;
+}
+
+.group:hover .audio-indicator {
+  @apply opacity-75;
 }

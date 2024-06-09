@@ -1,7 +1,7 @@
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import MyBlog from "@/components/MyBlog";
+import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import Resume from "@/components/Resume";
@@ -10,14 +10,14 @@ import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-black text-white">
+    <main className="bg-black text-white">
       <Navbar />
+      <Hero />
       <About />
       <Resume />
       <Services />
       <Skills />
       <Projects />
-      <MyBlog />
       <Contact />
       <Footer />
     </main>
