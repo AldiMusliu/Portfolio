@@ -1,7 +1,13 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const useHoverSound = (src: string) => {
-  const audioRef = useRef(new Audio(src));
+  const audioRef = useRef<InstanceType<typeof Audio> | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      audioRef.current = new Audio(src);
+    }
+  }, [src]);
 
   const playSound = () => {
     if (audioRef.current) {

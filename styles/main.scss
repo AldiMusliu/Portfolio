@@ -17,7 +17,7 @@
 }
 
 .hover-line {
-  @apply absolute left-0 -bottom-1 w-full h-1 bg-[#ffbd39] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-l-lg rounded-r-lg;
+  @apply absolute left-0 -bottom-1 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-l-lg rounded-r-lg;
 }
 
 .navbar-cursor {
@@ -38,7 +38,7 @@
 }
 
 .hover-effect {
-  @apply transition-transform duration-300 transform hover:bg-[#ffbd39] hover:-translate-y-2;
+  @apply transition-transform duration-300 transform hover:bg-primary hover:-translate-y-2;
 }
 
 @keyframes spin {
@@ -65,4 +65,12 @@
 
 .group:hover .audio-indicator {
   @apply opacity-75;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Ensure the canvas doesn't block other elements */
+  z-index: -1; /* Make sure the canvas is behind other elements */
 }

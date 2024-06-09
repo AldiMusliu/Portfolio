@@ -4,8 +4,9 @@ import Image from "next/image";
 import profileImage from "@/public/images/profileImage.png";
 import { Globe, LocateIcon, Mail, Phone, Store } from "lucide-react";
 import useClickSound from "@/hooks/useClickSound";
+import { cn } from "@/utils/cn";
 
-const Contact = () => {
+const Contact = ({ isDark }: { isDark: boolean }) => {
   const { audioRef: clickAudioRef, playSound } = useClickSound();
 
   const [formData, setFormData] = useState({
@@ -54,15 +55,12 @@ const Contact = () => {
     }
   };
   return (
-    <section
-      id="contact"
-      className="w-full h-auto bg-black text-white py-24 px-8"
-    >
+    <section id="contact" className="w-full h-auto py-24 px-8">
       <div className="container mx-auto">
         <h2 className="text-5xl font-bold mb-4 text-center">Contact Me</h2>
         <p className="text-lg mb-12 text-center text-gray-500">
-          Far far away, behind the word mountains, far from the countries
-          Vokalia and Consonantia.
+          Get in touch to discuss your project ideas or to learn more about my
+          work. I'm here to help!
         </p>
         <div className="flex items-center gap-10 justify-center mb-10">
           <div className="flex items-center space-x-4">
@@ -90,7 +88,7 @@ const Contact = () => {
             <Globe size={24} />
             <div>
               <p className="font-bold">WEBSITE</p>
-              <p className="text-gray-400">myportfolio.com</p>
+              <p className="text-gray-400">myportfolio-rho-taupe.vercel.app/</p>
             </div>
           </div>
         </div>
@@ -106,7 +104,12 @@ const Contact = () => {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-3 bg-[#1a1a1a] text-white rounded-lg"
+                className={cn(
+                  "w-full p-3 rounded-lg",
+                  isDark
+                    ? "bg-secondary text-white"
+                    : "bg-white text-black border border-gray-900"
+                )}
                 required
               />
               <input
@@ -115,7 +118,12 @@ const Contact = () => {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-3 bg-[#1a1a1a] text-white rounded-lg"
+                className={cn(
+                  "w-full p-3 rounded-lg",
+                  isDark
+                    ? "bg-secondary text-white"
+                    : "bg-white text-black border border-gray-900"
+                )}
                 required
               />
               <input
@@ -124,12 +132,22 @@ const Contact = () => {
                 placeholder="Subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full p-3 bg-[#1a1a1a] text-white rounded-lg"
+                className={cn(
+                  "w-full p-3 rounded-lg",
+                  isDark
+                    ? "bg-secondary text-white"
+                    : "bg-white text-black border border-gray-900"
+                )}
                 required
               />
               <textarea
                 placeholder="Message"
-                className="w-full p-3 bg-[#1a1a1a] text-white rounded-lg h-32"
+                className={cn(
+                  "w-full p-3 rounded-lg h-32",
+                  isDark
+                    ? "bg-secondary text-white"
+                    : "bg-white text-black border border-gray-900"
+                )}
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -139,7 +157,7 @@ const Contact = () => {
                 <button
                   onClick={playSound}
                   disabled={isSubmitting}
-                  className="bg-[#ffbd39] text-black px-6 py-3 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
+                  className="bg-primary text-black px-6 py-3 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
                 >
                   {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
                 </button>

@@ -1,8 +1,16 @@
 "use client";
 import useClickSound from "@/hooks/useClickSound";
+import { cn } from "@/utils/cn";
+import { Moon, Sun } from "lucide-react";
 import React, { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({
+  isDark,
+  toggleTheme,
+}: {
+  isDark: boolean;
+  toggleTheme: () => void;
+}) => {
   const [activeSection, setActiveSection] = useState("hero");
 
   const handleScroll = (id: string) => {
@@ -20,11 +28,16 @@ const Navbar = () => {
   const { audioRef: clickAudioRef, playSound } = useClickSound();
 
   return (
-    <nav className="bg-black text-white fixed w-full z-10 ">
+    <nav
+      className={cn(
+        "fixed w-full z-10",
+        isDark ? "bg-black text-white" : "bg-white text-black"
+      )}
+    >
       <div className="container mx-auto py-6 px-20 flex justify-between items-center">
         <div className="text-3xl font-bold">
-          <span className="text-[#ffbd39]">Aldi</span>'s Portfolio
-          <span className="text-[#ffbd39]">.</span>
+          <span className="text-primary">Aldi</span>'s Portfolio
+          <span className="text-primary">.</span>
         </div>
         <ul className="flex space-x-6">
           {[
@@ -40,7 +53,7 @@ const Navbar = () => {
               <span
                 onClick={() => handleScroll(item.id)}
                 className={`navbar-cursor ${
-                  activeSection === item.id ? "text-[#ffbd39]" : ""
+                  activeSection === item.id ? "text-primary" : ""
                 }`}
               >
                 {item.label}
@@ -48,6 +61,11 @@ const Navbar = () => {
               </span>
             </li>
           ))}
+          <li>
+            <button onClick={toggleTheme} className="text-xl">
+              {isDark ? <Sun /> : <Moon />}
+            </button>
+          </li>
         </ul>
       </div>
       <audio ref={clickAudioRef} src="/assets/mouseClick.wav" />

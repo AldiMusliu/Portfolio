@@ -22,7 +22,7 @@ const Footer = () => {
     }
   };
   return (
-    <footer className="bg-black text-white py-12">
+    <footer className="py-12">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
           <h3 className="text-xl font-bold mb-4">About</h3>

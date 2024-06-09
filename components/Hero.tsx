@@ -4,8 +4,9 @@ import Image from "next/image";
 import profilePicture from "@/public/images/profileImage1.webp";
 import profilePicture2 from "@/public/images/profileImage2.webp";
 import useClickSound from "@/hooks/useClickSound";
+import { cn } from "@/utils/cn";
 
-const Hero = () => {
+const Hero = ({ isDark }: { isDark: boolean }) => {
   const slides = [
     {
       greeting: "HELLO!",
@@ -92,15 +93,15 @@ const Hero = () => {
             }`}
           >
             <div className="max-w-lg">
-              <p className="text-[#ffbd39] text-lg">{slide.greeting}</p>
+              <p className="text-primary text-lg">{slide.greeting}</p>
               <h1 className="text-6xl font-bold">
-                I'm a <span className="text-[#ffbd39]">web programmer</span>{" "}
+                I'm a <span className="text-primary">web programmer</span>{" "}
                 <br /> based in Kosova
               </h1>
               <div className="flex space-x-4 mt-8">
                 <button
                   onClick={playSound}
-                  className="bg-[#ffbd39] text-black px-6 py-2 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
+                  className="bg-primary text-black px-6 py-2 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
                 >
                   {slide.button1}
                 </button>
@@ -113,19 +114,29 @@ const Hero = () => {
               </div>
             </div>
             <div>
-              <Image src={slide.image} alt="Hero" className="h-auto max-w-md" />
+              <Image
+                src={slide.image}
+                alt="Hero"
+                className={cn("h-auto max-w-md ", !isDark && "rounded-full")}
+              />
             </div>
           </div>
         ))}
         <button
           onClick={goToPreviousSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2  text-white rounded-full"
+          className={cn(
+            "absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full",
+            isDark ? "text-white" : "text-black"
+          )}
         >
           &#10094;
         </button>
         <button
           onClick={goToNextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2  text-white rounded-full"
+          className={cn(
+            "absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full",
+            isDark ? "text-white" : "text-black"
+          )}
         >
           &#10095;
         </button>

@@ -20,10 +20,7 @@ const About = () => {
   };
 
   return (
-    <section
-      id="about"
-      className="w-full h-auto bg-black text-white py-10 px-8"
-    >
+    <section id="about" className="w-full h-auto py-10 px-8">
       <div className="container mx-auto flex flex-col md:flex-row items-center gap">
         <div className="w-full md:w-1/2 flex justify-center">
           <div
@@ -49,8 +46,9 @@ const About = () => {
         <div className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-12">
           <h2 className="text-5xl font-bold mb-4">About Me</h2>
           <p className="text-lg mb-4 text-gray-500">
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia.
+            I'm a dedicated front-end developer with one year of experience,
+            skilled in HTML, CSS, JavaScript, and React, focused on creating
+            responsive and user-friendly web applications.
           </p>
           <div className="flex gap-7">
             <div className="flex flex-col gap-2">
@@ -72,7 +70,7 @@ const About = () => {
           </div>
 
           <div className="flex gap-3 mt-8 items-center">
-            <p className="text-[#ffbd39] text-3xl font-bold">5</p>
+            <p className="text-primary text-3xl font-bold">5</p>
             <p className="text-lg">Project complete</p>
           </div>
         </div>

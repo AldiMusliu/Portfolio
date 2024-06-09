@@ -1,5 +1,6 @@
 "use client";
 import useClickSound from "@/hooks/useClickSound";
+import { cn } from "@/utils/cn";
 import React from "react";
 
 const resumeData = [
@@ -33,7 +34,7 @@ const resumeData = [
   },
 ];
 
-const Resume = () => {
+const Resume = ({ isDark }: { isDark: boolean }) => {
   const { audioRef: clickAudioRef, playSound } = useClickSound();
   const handleDownloadClick = () => {
     playSound();
@@ -41,21 +42,24 @@ const Resume = () => {
   };
 
   return (
-    <section
-      id="resume"
-      className="w-full h-auto bg-black text-white py-24 px-8"
-    >
+    <section id="resume" className="w-full h-auto py-24 px-8">
       <div className="container mx-auto">
         <h2 className="text-5xl font-bold mb-5 text-center">Resume</h2>
         <p className="text-lg mb-12 text-center text-gray-500 px-8">
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia. It is a paradisematic country, in which
-          roasted parts of sentences fly into your mouth.
+          Welcome to my resume. Below, you will find detailed information about
+          my educational background, professional experience, and technical
+          skills.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {resumeData.map((item, index) => (
-            <div key={index} className="bg-[#1a1a1a] p-8 rounded-lg">
-              <p className="text-[#ffbd39] text-3xl font-bold">{item.year}</p>
+            <div
+              key={index}
+              className={cn(
+                "p-8 rounded-lg",
+                isDark ? "bg-secondary" : "bg-gray-100"
+              )}
+            >
+              <p className="text-primary text-3xl font-bold">{item.year}</p>
               <h3 className="text-2xl font-bold my-2">{item.title}</h3>
               <p className="text-gray-500 uppercase">{item.institution}</p>
               <p className="mt-4 text-gray-500 ">{item.description}</p>
@@ -64,7 +68,7 @@ const Resume = () => {
           <div className="col-span-2 flex justify-center items-center">
             <button
               onClick={handleDownloadClick}
-              className="mt-8 bg-[#ffbd39] text-black px-6 py-3 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
+              className="mt-8 bg-primary text-black px-6 py-3 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
             >
               DOWNLOAD CV
             </button>
