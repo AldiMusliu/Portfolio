@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import profilePicture from "@/public/images/profileImage1.webp";
 import profilePicture2 from "@/public/images/profileImage2.webp";
+import useClickSound from "@/hooks/useClickSound";
 
 const Hero = () => {
   const slides = [
@@ -22,11 +23,6 @@ const Hero = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideInterval = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    startSlideShow();
-    return () => stopSlideShow();
-  }, []);
 
   const startSlideShow = () => {
     slideInterval.current = setInterval(() => {
@@ -74,6 +70,13 @@ const Hero = () => {
     }
   };
 
+  const { audioRef: clickAudioRef, playSound } = useClickSound();
+
+  useEffect(() => {
+    startSlideShow();
+    return () => stopSlideShow();
+  }, []);
+
   return (
     <section
       id="hero"
@@ -95,10 +98,16 @@ const Hero = () => {
                 <br /> based in Kosova
               </h1>
               <div className="flex space-x-4 mt-8">
-                <button className="bg-[#ffbd39] text-black px-6 py-2 rounded-full font-bold">
+                <button
+                  onClick={playSound}
+                  className="bg-[#ffbd39] text-black px-6 py-2 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
+                >
                   {slide.button1}
                 </button>
-                <button className="border-2 border-white px-6 py-2 rounded-full font-bold">
+                <button
+                  onClick={playSound}
+                  className="border-2 border-white px-6 py-2 rounded-full font-bold transition-transform duration-300 transform hover:text-white hover:-translate-y-2"
+                >
                   {slide.button2}
                 </button>
               </div>
@@ -121,6 +130,7 @@ const Hero = () => {
           &#10095;
         </button>
       </div>
+      <audio ref={clickAudioRef} src="/assets/mouseClick.wav" />
     </section>
   );
 };
