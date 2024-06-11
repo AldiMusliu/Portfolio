@@ -73,6 +73,12 @@ const Projects = () => {
               </div>
             </Link>
           ))}
+          <div className="col-span-2">
+            <video className="w-full rounded-md" controls>
+              <source src="/assets/project.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
     </section>

@@ -1,12 +1,16 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, PropsWithChildren } from "react";
 import Image from "next/image";
 import profilePicture from "@/public/images/profileImage1.webp";
 import profilePicture2 from "@/public/images/profileImage2.webp";
 import useClickSound from "@/hooks/useClickSound";
 import { cn } from "@/utils/cn";
 
-const Hero = ({ isDark }: { isDark: boolean }) => {
+interface HeroProps {
+  isDark: boolean;
+}
+
+const Hero: React.FC<PropsWithChildren<HeroProps>> = ({ isDark, children }) => {
   const slides = [
     {
       greeting: "HELLO!",
