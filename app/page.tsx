@@ -6,6 +6,7 @@ const MyAvatar = dynamic(() => import("../components/Avatar"), {
 
 const Home = () => {
   return <MyAvatar />;
+  
 };
 
 export default Home;
